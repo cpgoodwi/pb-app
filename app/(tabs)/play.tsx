@@ -1,11 +1,11 @@
 import { Text, View, StyleSheet } from "react-native";
 
-export default function DrillScreen() {
+export default function PlayScreen() {
   return (
     <View
       style={styles.container}
     >
-      <Text>Index from Tabs</Text>
+      <Text>Play from Tabs</Text>
     </View>
   );
 }
