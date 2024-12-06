@@ -1,11 +1,11 @@
 import { Text, View, StyleSheet } from "react-native";
 
-export default function DrillScreen() {
+export default function HistoryScreen() {
   return (
     <View
       style={styles.container}
     >
-      <Text>Index from Tabs</Text>
+      <Text>Home/History from Tabs</Text>
     </View>
   );
 }

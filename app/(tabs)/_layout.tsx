@@ -7,22 +7,22 @@ export default function TabLayout() {
       <Tabs.Screen 
         name="index" 
         options={{
-          title: "Drill",
-          // TODO: make icon for drilling
+          title: "Home",
+          // TODO: make icon for home/history
         }}
       />
       <Tabs.Screen 
-        name="history" 
+        name="drill" 
         options={{
-          title: "History",
-          // TODO: make icon for history
+          title: "Drill",
+          // TODO: make icon for drilling
         }}
       />
       <Tabs.Screen 
         name="play" 
         options={{
           title: "Play",
-          // TODO: make icon for drilling
+          // TODO: make icon for playing
         }}
       />
     </Tabs>
