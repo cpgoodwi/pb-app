@@ -7,3 +7,4 @@ export const players = sqliteTable("players", {
 });
 
 export type Player = typeof players.$inferSelect;
+export type NewPlayer = typeof players.$inferInsert;
