@@ -8,3 +8,15 @@ export const players = sqliteTable("players", {
 
 export type Player = typeof players.$inferSelect;
 export type NewPlayer = typeof players.$inferInsert;
+
+export const singlesGames = sqliteTable("singles_games", {
+  id: int().primaryKey({ autoIncrement: true }),
+  opponent_id: int().notNull(),
+  // start: int(),
+  // end: int(),
+  score_you: int().notNull(),
+  score_opp: int().notNull(),
+});
+
+export type SinglesGame = typeof singlesGames.$inferSelect;
+export type NewSinglesGame = typeof singlesGames.$inferInsert;

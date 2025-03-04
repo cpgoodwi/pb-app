@@ -37,3 +37,5 @@ export function usePlayerData(db: ExpoSQLiteDatabase) {
 
   return { allPlayers, isLoading, error, createPlayer };
 }
+
+export function useGameData(db: ExpoSQLiteDatabase) {}
