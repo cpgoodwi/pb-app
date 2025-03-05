@@ -2,9 +2,7 @@ import { Text, View, StyleSheet } from "react-native";
 
 export default function PlayScreen() {
   return (
-    <View
-      style={styles.container}
-    >
+    <View style={styles.container}>
       <Text>Play from Tabs</Text>
     </View>
   );
@@ -16,7 +14,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  text: {
-
-  }
+  text: {},
 });
