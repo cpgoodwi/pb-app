@@ -1,10 +1,19 @@
-import { players as playersTable, Player, NewPlayer } from "@/db/schema";
+import {
+  players as playersTable,
+  Player,
+  NewPlayer,
+  singlesGames as singlesGamesTable,
+  SinglesGame,
+} from "@/db/schema";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { ExpoSQLiteDatabase } from "drizzle-orm/expo-sqlite";
 
 const QUERY_KEYS = {
   ALL_PLAYERS: ["players"],
   PLAYER: (id: string) => ["players", id],
+
+  ALL_SINGLES_GAMES: ["singles_games"],
+  SINGLES_GAME: (id: string) => ["singlesgames", id],
 };
 
 export function usePlayerData(db: ExpoSQLiteDatabase) {
@@ -17,8 +26,7 @@ export function usePlayerData(db: ExpoSQLiteDatabase) {
   } = useQuery({
     queryKey: QUERY_KEYS.ALL_PLAYERS,
     queryFn: async (): Promise<Player[]> => {
-      const result = await db.select().from(playersTable).all();
-      return result;
+      return db.select().from(playersTable).all();
     },
   });
 
@@ -38,4 +46,17 @@ export function usePlayerData(db: ExpoSQLiteDatabase) {
   return { allPlayers, isLoading, error, createPlayer };
 }
 
-export function useGameData(db: ExpoSQLiteDatabase) {}
+export function useGameData(db: ExpoSQLiteDatabase) {
+  const queryClient = useQueryClient();
+
+  const {
+    data: allGames,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: QUERY_KEYS.ALL_SINGLES_GAMES,
+    queryFn: async (): Promise<SinglesGame[]> => {
+      return db.select().from(singlesGamesTable).all();
+    },
+  });
+}
